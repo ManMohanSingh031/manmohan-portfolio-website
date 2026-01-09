@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ChevronDown, Github, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { PERSONAL_INFO } from '../constants.js';
 
 export function Hero() {
   const scrollToAbout = () => {
@@ -160,7 +161,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Man Mohan Singh
+{PERSONAL_INFO.name}
           </motion.h1>
         </motion.div>
 
@@ -181,7 +182,7 @@ export function Hero() {
               ease: "linear"
             }}
           >
-            Frontend Developer | React.js Specialist
+{PERSONAL_INFO.title}
           </motion.h2>
           <motion.div
             className="text-lg text-slate-600 dark:text-slate-400"
@@ -189,7 +190,7 @@ export function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
           >
-            Associate Software Engineer @ MyGate
+{PERSONAL_INFO.position}
           </motion.div>
         </motion.div>
 
@@ -199,7 +200,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          4th-year Computer Science student at IIIT Nagpur with 2 years of experience building modern web applications. Quick learner, team player, and creative problem solver passionate about exploring new technologies.
+{PERSONAL_INFO.description}
         </motion.p>
 
         <motion.div
@@ -209,7 +210,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.7 }}
         >
           <motion.a
-            href="mailto:manmohansingh8422@gmail.com"
+href={`mailto:${PERSONAL_INFO.email}`}
             className="flex items-center justify-center gap-2 p-3 rounded-lg bg-slate-200/80 dark:bg-slate-800/80 backdrop-blur-sm text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
             whileHover={{ scale: 1.05, y: -5 }}
             whileTap={{ scale: 0.95 }}
@@ -218,20 +219,20 @@ export function Hero() {
             <span className="text-sm">Email</span>
           </motion.a>
           <motion.a
-            href="tel:+918433376122"
+href={`tel:${PERSONAL_INFO.phone}`}
             className="flex items-center justify-center gap-2 p-3 rounded-lg bg-slate-200/80 dark:bg-slate-800/80 backdrop-blur-sm text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
             whileHover={{ scale: 1.05, y: -5 }}
             whileTap={{ scale: 0.95 }}
           >
             <Phone size={20} />
-            <span className="text-sm">+91 8433376122</span>
+<span className="text-sm">{PERSONAL_INFO.phone}</span>
           </motion.a>
           <motion.div
             className="flex items-center justify-center gap-2 p-3 rounded-lg bg-slate-200/80 dark:bg-slate-800/80 backdrop-blur-sm text-slate-700 dark:text-slate-300"
             whileHover={{ scale: 1.05, y: -5 }}
           >
             <MapPin size={20} />
-            <span className="text-sm">Rae Bareli, UP</span>
+<span className="text-sm">{PERSONAL_INFO.location}</span>
           </motion.div>
         </motion.div>
 
@@ -242,7 +243,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <motion.a
-            href="https://github.com/manmohansingh8422"
+href={PERSONAL_INFO.github}
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"
@@ -253,7 +254,7 @@ export function Hero() {
             <Github size={24} />
           </motion.a>
           <motion.a
-            href="https://linkedin.com/in/manmohansingh"
+href={PERSONAL_INFO.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors"

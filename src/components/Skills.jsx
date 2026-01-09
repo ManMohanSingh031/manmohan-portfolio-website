@@ -1,71 +1,13 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef, useState } from 'react';
-import { Code, Palette, Database, Terminal, Cpu, Globe, Wrench, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
+import { SKILL_CATEGORIES } from '../constants.js';
 
 export function Skills() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const [hoveredSkill, setHoveredSkill] = useState(null);
-
-  const skillCategories = [
-    {
-      category: "Frontend Development",
-      icon: Globe,
-      gradient: "from-blue-400 to-cyan-500",
-      description: "Building modern, responsive web applications",
-      skills: ["React.js", "Next.js", "TypeScript", "JavaScript", "Material UI", "Tailwind CSS", "HTML/CSS", "Redux"]
-    },
-    {
-      category: "Backend Development",
-      icon: Database,
-      gradient: "from-emerald-400 to-teal-500",
-      description: "Server-side development and data management",
-      skills: ["Node.js", "Express.js", "MySQL", "MongoDB", "PostgreSQL", "REST APIs", "GraphQL"]
-    },
-    {
-      category: "Cloud & DevOps",
-      icon: Cpu,
-      gradient: "from-orange-400 to-red-500",
-      description: "Cloud infrastructure and deployment automation",
-      skills: ["AWS", "AWS CodePipeline", "Jenkins", "Docker", "CI/CD", "AWS Lambda"]
-    },
-    {
-      category: "Programming Languages",
-      icon: Code,
-      gradient: "from-purple-400 to-pink-500",
-      description: "Core programming and algorithmic skills",
-      skills: ["C/C++", "Java", "Python", "JavaScript", "TypeScript", "Data Structures & Algorithms"]
-    },
-    {
-      category: "Design & UI/UX",
-      icon: Palette,
-      gradient: "from-pink-400 to-rose-500",
-      description: "Creating beautiful and intuitive user experiences",
-      skills: ["Figma", "User Experience", "Responsive Design", "Prototyping", "Design Systems"]
-    },
-    {
-      category: "Development Tools",
-      icon: Wrench,
-      gradient: "from-green-400 to-blue-500",
-      description: "Essential tools for modern development workflow",
-      skills: ["Git & GitHub", "VS Code", "Postman", "Linux", "Terminal", "npm/yarn", "Webpack", "Vite"]
-    },
-    {
-      category: "Testing & Quality",
-      icon: Terminal,
-      gradient: "from-yellow-400 to-orange-500",
-      description: "Ensuring code quality and reliability",
-      skills: ["Jest", "React Testing Library", "Unit Testing", "Integration Testing", "Code Reviews"]
-    },
-    {
-      category: "Emerging Technologies",
-      icon: Sparkles,
-      gradient: "from-indigo-400 to-purple-500",
-      description: "Exploring cutting-edge technologies and frameworks",
-      skills: ["Machine Learning", "AI Technologies", "Serverless", "Microservices", "Web3"]
-    }
-  ];
 
   return (
     <section className="py-24 px-4 relative overflow-hidden" ref={ref}>
@@ -134,7 +76,7 @@ export function Skills() {
 
         {/* Skills Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
+          {SKILL_CATEGORIES.map((category, categoryIndex) => (
             <motion.div
               key={category.category}
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
