@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef, useState } from 'react';
 import { Sparkles } from 'lucide-react';
-import { SKILL_CATEGORIES } from '../constants.js';
+import { SKILLS_DATA } from '../constants.js';
 
 export function Skills() {
   const ref = useRef(null);
@@ -56,7 +56,7 @@ export function Skills() {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Skills & Expertise
+            {SKILLS_DATA.title}
           </motion.h2>
           <motion.div
             className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mx-auto rounded-full"
@@ -70,13 +70,13 @@ export function Skills() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4 }}
           >
-            Technologies and tools I use to create exceptional digital experiences
+            {SKILLS_DATA.subtitle}
           </motion.p>
         </motion.div>
 
         {/* Skills Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SKILL_CATEGORIES.map((category, categoryIndex) => (
+          {SKILLS_DATA.categories.map((category, categoryIndex) => (
             <motion.div
               key={category.category}
               initial={{ opacity: 0, y: 50, scale: 0.9 }}

@@ -2,73 +2,12 @@ import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { EXPERIENCE_DATA } from '../constants.js';
 
 export function Experience() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-  const experiences = [
-    {
-      title: "Associate Software Engineer (Frontend)",
-      company: "MyGate",
-      location: "Bangalore, India",
-      period: "September 2024 - Present",
-      type: "Full Time",
-      description: "Working in the ERP team, responsible for developing and maintaining the consumer-facing web application, ensuring high performance and responsiveness to requests from the front-end.",
-      achievements: [
-        "Developing and maintaining consumer-facing web applications",
-        "Collaborating with design team to implement user-friendly features",
-        "Ensuring technical feasibility of UI/UX designs",
-        "Participating in code reviews and providing constructive feedback"
-      ],
-      technologies: ["React", "Redux", "JavaScript ES6+", "Material-UI", "HTML/SCSS", "REST API", "GraphQL", "Git", "Jira", "Agile"]
-    },
-    {
-      title: "Software Engineer Intern",
-      company: "BharatTech Pvt. Ltd",
-      location: "Remote",
-      period: "February 2024 - July 2024",
-      type: "Internship",
-      description: "Collaborated with a team of five to enhance a Next.js and React.js project. Responsibilities included fixing bugs, creating reusable components, and adding new components.",
-      achievements: [
-        "Enhanced Next.js and React.js projects",
-        "Created reusable and scalable components",
-        "Fixed critical bugs improving application stability",
-        "Collaborated effectively in a team of 5 developers"
-      ],
-      technologies: ["Next.js", "React.js", "JavaScript", "CSS", "Git"]
-    },
-    {
-      title: "Software Engineer Intern",
-      company: "InternPixel Pvt. Ltd",
-      location: "Remote",
-      period: "January 2024 - February 2024",
-      type: "Internship",
-      description: "Developed responsive web pages using HTML, CSS, and JavaScript, ensuring cross-device compatibility with features like navigation menus, forms, and interactive elements.",
-      achievements: [
-        "Developed responsive web pages with cross-device compatibility",
-        "Implemented interactive navigation menus and forms",
-        "Ensured pixel-perfect design implementation",
-        "Optimized page load times and performance"
-      ],
-      technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"]
-    },
-    {
-      title: "Subject Matter Expert (SME)",
-      company: "Chegg India Pvt. Ltd",
-      location: "Remote",
-      period: "October 2023 - March 2024",
-      type: "Part Time",
-      description: "Guided over 200 students in various computer science subjects, significantly improving their academic performance with an 82% accuracy rate.",
-      achievements: [
-        "Guided over 200 students in computer science subjects",
-        "Achieved 82% accuracy rate in solutions provided",
-        "Improved student academic performance significantly",
-        "Developed clear and comprehensive explanations"
-      ],
-      technologies: ["C++", "Data Structures", "Algorithms", "Computer Science Fundamentals"]
-    }
-  ];
 
   return (
     <section className="py-24 px-4 bg-slate-100/50 dark:bg-slate-900/50 overflow-hidden" ref={ref}>
@@ -83,7 +22,7 @@ export function Experience() {
             className="text-4xl md:text-5xl mb-4 text-slate-800 dark:text-slate-100 "
             whileHover={{ scale: 1.05 }}
           >
-            Professional Journey
+            {EXPERIENCE_DATA.title}
           </motion.h2>
           <motion.div 
             className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mx-auto rounded-full"
@@ -92,7 +31,7 @@ export function Experience() {
             transition={{ duration: 0.8, delay: 0.2 }}
           />
           <p className="text-slate-600 dark:text-slate-400 mt-6 max-w-2xl mx-auto">
-            My career growth from learner to professional developer
+            {EXPERIENCE_DATA.subtitle}
           </p>
         </motion.div>
 
@@ -148,7 +87,7 @@ export function Experience() {
             </svg>
           </motion.div>
 
-          {experiences.map((exp, index) => {
+          {EXPERIENCE_DATA.experiences.map((exp, index) => {
             const isLeft = index % 2 === 0;
             
             return (
@@ -290,7 +229,7 @@ export function Experience() {
                       </p>
                       
                       <div className="mb-4">
-                        <h4 className="text-sm text-slate-600 dark:text-slate-400 mb-3">Key Achievements:</h4>
+                        <h4 className="text-sm text-slate-600 dark:text-slate-400 mb-3">{EXPERIENCE_DATA.achievementsLabel}</h4>
                         <ul className="space-y-2">
                           {exp.achievements.map((achievement, i) => (
                             <motion.li 
@@ -355,7 +294,7 @@ export function Experience() {
             🌳
           </motion.div>
           <p className="text-slate-600 dark:text-slate-400 mt-4">
-            Growing stronger with each experience
+            {EXPERIENCE_DATA.footer}
           </p>
         </motion.div>
       </div>

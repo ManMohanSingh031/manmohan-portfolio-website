@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef, useEffect, useState } from 'react';
 import { Star, Quote } from 'lucide-react';
+import { TESTIMONIALS_DATA } from '../constants.js';
 
 export function Testimonials() {
   const ref = useRef(null);
@@ -9,75 +10,9 @@ export function Testimonials() {
   const scrollRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
 
-  const testimonials = [
-    {
-      name: "Rajesh Kumar",
-      role: "Senior Developer at MyGate",
-      company: "MyGate",
-      rating: 5,
-      text: "Man Mohan is an exceptional frontend developer with a keen eye for detail. His work on our ERP system has been outstanding. He consistently delivers high-quality code and is always eager to learn new technologies.",
-      avatar: "👨‍💼"
-    },
-    {
-      name: "Priya Sharma",
-      role: "Team Lead at BharatTech",
-      company: "BharatTech Pvt. Ltd",
-      rating: 5,
-      text: "Working with Man Mohan was a pleasure. He quickly adapted to our Next.js project and made significant contributions. His ability to create reusable components and fix complex bugs impressed the entire team.",
-      avatar: "👩‍💼"
-    },
-    {
-      name: "Amit Patel",
-      role: "Project Manager at InternPixel",
-      company: "InternPixel Pvt. Ltd",
-      rating: 5,
-      text: "Man Mohan demonstrated excellent skills in creating responsive web designs. His attention to cross-device compatibility and pixel-perfect implementation was remarkable. He's a quick learner and delivered all tasks ahead of schedule.",
-      avatar: "👨‍💻"
-    },
-    {
-      name: "Dr. Sarah Johnson",
-      role: "Computer Science Professor",
-      company: "IIIT Nagpur",
-      rating: 5,
-      text: "As Man Mohan's professor, I've watched him grow into a skilled developer. His dedication to learning and problem-solving abilities are exceptional. He actively participates in projects and helps his peers.",
-      avatar: "👩‍🏫"
-    },
-    {
-      name: "Vikram Singh",
-      role: "Mentor at Chegg",
-      company: "Chegg India",
-      rating: 5,
-      text: "Man Mohan's expertise in Data Structures and Algorithms is impressive. His 82% accuracy rate and ability to guide over 200 students shows his deep understanding and teaching skills.",
-      avatar: "👨‍🎓"
-    },
-    {
-      name: "Neha Gupta",
-      role: "Frontend Developer",
-      company: "Tech Corp",
-      rating: 5,
-      text: "Collaborating with Man Mohan on various projects has been a great experience. His coding standards and attention to UI/UX details are commendable. A true team player!",
-      avatar: "👩‍💻"
-    },
-    {
-      name: "Arjun Reddy",
-      role: "Software Architect",
-      company: "Digital Solutions",
-      rating: 5,
-      text: "Man Mohan brings fresh perspectives and innovative solutions to every challenge. His passion for learning and adapting to new technologies makes him stand out among his peers.",
-      avatar: "👨‍💼"
-    },
-    {
-      name: "Kavya Iyer",
-      role: "UX Designer",
-      company: "Design Studio",
-      rating: 5,
-      text: "Working with Man Mohan on UI implementation was seamless. He perfectly translates designs into code while maintaining pixel-perfect accuracy and smooth animations.",
-      avatar: "👩‍🎨"
-    }
-  ];
 
   // Duplicate testimonials for infinite scroll effect
-  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
+  const duplicatedTestimonials = [...TESTIMONIALS_DATA.testimonials, ...TESTIMONIALS_DATA.testimonials, ...TESTIMONIALS_DATA.testimonials];
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
@@ -110,7 +45,7 @@ export function Testimonials() {
             className="text-4xl md:text-5xl mb-4 text-slate-800 dark:text-slate-100"
             whileHover={{ scale: 1.05 }}
           >
-            Testimonials & Reviews
+            {TESTIMONIALS_DATA.title}
           </motion.h2>
           <motion.div 
             className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mx-auto rounded-full"
@@ -119,7 +54,7 @@ export function Testimonials() {
             transition={{ duration: 0.8, delay: 0.2 }}
           />
           <p className="text-slate-600 dark:text-slate-400 mt-6 max-w-2xl mx-auto">
-            What colleagues, mentors, and team members say about working with me
+            {TESTIMONIALS_DATA.subtitle}
           </p>
         </motion.div>
 
@@ -214,12 +149,7 @@ export function Testimonials() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.8 }}
         >
-          {[
-            { value: "5.0", label: "Average Rating", icon: "⭐" },
-            { value: "200+", label: "Students Helped", icon: "🎓" },
-            { value: "82%", label: "Accuracy Rate", icon: "✓" },
-            { value: "4+", label: "Companies", icon: "🏢" }
-          ].map((stat, index) => (
+          {TESTIMONIALS_DATA.stats.map((stat, index) => (
             <motion.div
               key={stat.label}
               className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-slate-800/50 dark:to-slate-700/50 rounded-xl p-6 text-center border border-slate-200 dark:border-slate-700/50"

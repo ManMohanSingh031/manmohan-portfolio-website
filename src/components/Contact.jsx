@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef, useState } from 'react';
 import { Mail, MapPin, Send, Phone, CheckCircle } from 'lucide-react';
+import { CONTACT_DATA } from '../constants.js';
 
 export function Contact() {
   const ref = useRef(null);
@@ -42,7 +43,7 @@ export function Contact() {
             className="text-4xl md:text-5xl mb-4 text-slate-800 dark:text-slate-100 "
             whileHover={{ scale: 1.05 }}
           >
-            Get In Touch
+            {CONTACT_DATA.title}
           </motion.h2>
           <motion.div 
             className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mx-auto rounded-full"
@@ -51,7 +52,7 @@ export function Contact() {
             transition={{ duration: 0.8, delay: 0.2 }}
           />
           <p className="text-slate-600 dark:text-slate-400 mt-6 max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? Feel free to reach out. I'm always open to discussing new opportunities and ideas.
+            {CONTACT_DATA.subtitle}
           </p>
         </motion.div>
 
@@ -61,16 +62,16 @@ export function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h3 className="text-2xl mb-6 text-slate-800 dark:text-slate-100 ">Contact Information</h3>
+            <h3 className="text-2xl mb-6 text-slate-800 dark:text-slate-100 ">{CONTACT_DATA.contactInfo.title}</h3>
             
             <div className="space-y-6">
               <motion.a
-                href="mailto:manmohansingh8422@gmail.com"
+                href={CONTACT_DATA.contactInfo.email.href}
                 className="flex items-start gap-4 group"
                 whileHover={{ x: 10 }}
                 transition={{ duration: 0.3 }}
               >
-                <motion.div 
+                <motion.div
                   className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg group-hover:scale-110 transition-transform"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
@@ -78,20 +79,20 @@ export function Contact() {
                   <Mail className="text-blue-600 dark:text-blue-400 " size={24} />
                 </motion.div>
                 <div>
-                  <h4 className="text-slate-800 dark:text-slate-100 mb-1">Email</h4>
+                  <h4 className="text-slate-800 dark:text-slate-100 mb-1">{CONTACT_DATA.contactInfo.email.label}</h4>
                   <p className="text-slate-600 dark:text-slate-400 group-hover:text-blue-600 dark:text-blue-400 transition-colors">
-                    manmohansingh8422@gmail.com
+                    {CONTACT_DATA.contactInfo.email.value}
                   </p>
                 </div>
               </motion.a>
 
               <motion.a
-                href="tel:+918433376122"
+                href={CONTACT_DATA.contactInfo.phone.href}
                 className="flex items-start gap-4 group"
                 whileHover={{ x: 10 }}
                 transition={{ duration: 0.3 }}
               >
-                <motion.div 
+                <motion.div
                   className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg group-hover:scale-110 transition-transform"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
@@ -99,9 +100,9 @@ export function Contact() {
                   <Phone className="text-blue-600 dark:text-blue-400 " size={24} />
                 </motion.div>
                 <div>
-                  <h4 className="text-slate-800 dark:text-slate-100 mb-1">Phone</h4>
+                  <h4 className="text-slate-800 dark:text-slate-100 mb-1">{CONTACT_DATA.contactInfo.phone.label}</h4>
                   <p className="text-slate-600 dark:text-slate-400 group-hover:text-blue-600 dark:text-blue-400 transition-colors">
-                    +91 8433376122
+                    {CONTACT_DATA.contactInfo.phone.value}
                   </p>
                 </div>
               </motion.a>
@@ -119,8 +120,8 @@ export function Contact() {
                   <MapPin className="text-blue-600 dark:text-blue-400 " size={24} />
                 </motion.div>
                 <div>
-                  <h4 className="text-slate-800 dark:text-slate-100 mb-1">Location</h4>
-                  <p className="text-slate-600 dark:text-slate-400 ">Rae Bareli, Uttar Pradesh</p>
+                  <h4 className="text-slate-800 dark:text-slate-100 mb-1">{CONTACT_DATA.contactInfo.location.label}</h4>
+                  <p className="text-slate-600 dark:text-slate-400 ">{CONTACT_DATA.contactInfo.location.value}</p>
                 </div>
               </motion.div>
             </div>
@@ -132,9 +133,9 @@ export function Contact() {
               transition={{ duration: 0.8, delay: 0.4 }}
               whileHover={{ scale: 1.02 }}
             >
-              <p className="text-slate-700 dark:text-slate-300 ">
-                🚀 Currently working at <span className="text-blue-600 dark:text-blue-400 ">MyGate</span> and open to freelance opportunities. Let's create something amazing together!
-              </p>
+              <p className="text-slate-700 dark:text-slate-300 " dangerouslySetInnerHTML={{
+                __html: CONTACT_DATA.callToAction.replace('MyGate', '<span class="text-blue-600 dark:text-blue-400">MyGate</span>')
+              }} />
             </motion.div>
           </motion.div>
 
@@ -147,7 +148,7 @@ export function Contact() {
           >
             <div>
               <label htmlFor="name" className="block text-slate-700 dark:text-slate-300 mb-2">
-                Name
+                {CONTACT_DATA.form.fields.name.label}
               </label>
               <motion.input
                 type="text"
@@ -157,14 +158,14 @@ export function Contact() {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:border-blue-600 transition-colors"
-                placeholder="Your name"
+                placeholder={CONTACT_DATA.form.fields.name.placeholder}
                 whileFocus={{ scale: 1.02 }}
               />
             </div>
 
             <div>
               <label htmlFor="email" className="block text-slate-700 dark:text-slate-300 mb-2">
-                Email
+                {CONTACT_DATA.form.fields.email.label}
               </label>
               <motion.input
                 type="email"
@@ -174,14 +175,14 @@ export function Contact() {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:border-blue-600 transition-colors"
-                placeholder="your.email@example.com"
+                placeholder={CONTACT_DATA.form.fields.email.placeholder}
                 whileFocus={{ scale: 1.02 }}
               />
             </div>
 
             <div>
               <label htmlFor="message" className="block text-slate-700 dark:text-slate-300 mb-2">
-                Message
+                {CONTACT_DATA.form.fields.message.label}
               </label>
               <motion.textarea
                 id="message"
@@ -191,7 +192,7 @@ export function Contact() {
                 required
                 rows={6}
                 className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:border-blue-600 transition-colors resize-none"
-                placeholder="Tell me about your project..."
+                placeholder={CONTACT_DATA.form.fields.message.placeholder}
                 whileFocus={{ scale: 1.02 }}
               />
             </div>
@@ -206,12 +207,12 @@ export function Contact() {
               {isSubmitted ? (
                 <>
                   <CheckCircle size={20} />
-                  Message Sent!
+                  {CONTACT_DATA.form.button.success}
                 </>
               ) : (
                 <>
                   <Send size={20} />
-                  Send Message
+                  {CONTACT_DATA.form.button.default}
                 </>
               )}
             </motion.button>
@@ -225,10 +226,10 @@ export function Contact() {
           className="text-center mt-16 pt-8 border-t border-slate-300 "
         >
           <p className="text-slate-600 dark:text-slate-400 ">
-            © 2025 Man Mohan Singh. Built with React, Motion & Tailwind CSS
+            {CONTACT_DATA.footer.copyright}
           </p>
           <p className="text-slate-500 text-sm mt-2">
-            Made with 💙 for the web development community
+            {CONTACT_DATA.footer.tagline}
           </p>
         </motion.div>
       </div>

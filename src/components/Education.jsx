@@ -2,50 +2,12 @@ import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
 import { GraduationCap, Award, BookOpen } from 'lucide-react';
+import { EDUCATION } from '../constants.js';
 
 export function Education() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-  const education = [
-    {
-      degree: "Bachelor of Technology (B.Tech)",
-      field: "Computer Science",
-      institution: "Indian Institute of Information Technology, Nagpur (IIITN)",
-      period: "2020 - 2024",
-      grade: "CGPA: 6.01",
-      highlights: [
-        "Acquired strong foundation in programming and web development",
-        "Participated in collaborative projects and internships",
-        "Applied theoretical knowledge in real-world scenarios",
-        "Developed problem-solving and analytical skills"
-      ]
-    },
-    {
-      degree: "Intermediate",
-      field: "Science Stream",
-      institution: "Gopal Saraswati Vidya Mandir Senior Secondary School, Raebareli",
-      period: "2019 - 2020",
-      grade: "Percentage: 61%",
-      highlights: [
-        "Participated in various academic activities",
-        "Enhanced learning through extracurricular programs",
-        "Built strong foundation in mathematics and science"
-      ]
-    },
-    {
-      degree: "High School",
-      field: "General Studies",
-      institution: "Gopal Saraswati Vidya Mandir Senior Secondary School, Raebareli",
-      period: "2017 - 2018",
-      grade: "Percentage: 60%",
-      highlights: [
-        "Achieved foundational skills in science and mathematics",
-        "Developed interest in technology and computing",
-        "Rigorous coursework and practical application"
-      ]
-    }
-  ];
 
   return (
     <section className="py-24 px-4" ref={ref}>
@@ -71,7 +33,7 @@ export function Education() {
         </motion.div>
 
         <div className="space-y-8">
-          {education.map((edu, index) => (
+          {EDUCATION.map((edu, index) => (
             <motion.div
               key={edu.degree + edu.institution}
               initial={{ opacity: 0, y: 50 }}

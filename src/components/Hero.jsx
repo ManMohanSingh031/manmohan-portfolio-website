@@ -111,7 +111,7 @@ export function Hero() {
               {/* Profile Photo */}
               <motion.img
                 src="/my_photo.png"
-                alt="Man Mohan Singh"
+                alt={PERSONAL_INFO.name}
                 className="w-full h-full object-cover rounded-full"
                 animate={{
                   scale: [1, 1.02, 1],

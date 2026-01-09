@@ -55,9 +55,9 @@ export function About() {
                 transition={{ delay: 0.5 + index * 0.1 }}
                 dangerouslySetInnerHTML={{
                   __html: paragraph
-                    .replace('Man Mohan Singh', '<span class="text-blue-600 dark:text-blue-400">Man Mohan Singh</span>')
-                    .replace('Indian Institute of Information Technology, Nagpur (IIITN)', '<span class="text-purple-600 dark:text-purple-400">Indian Institute of Information Technology, Nagpur (IIITN)</span>')
-                    .replace('Raebareli, Uttar Pradesh', '<span class="text-blue-600 dark:text-blue-400">Raebareli, Uttar Pradesh</span>')
+                    .replace(PERSONAL_INFO.name, `<span class="text-blue-600 dark:text-blue-400">${PERSONAL_INFO.name}</span>`)
+                    .replace(PERSONAL_INFO.institute, `<span class="text-purple-600 dark:text-purple-400">${PERSONAL_INFO.institute}</span>`)
+                    .replace(PERSONAL_INFO.locationFull, `<span class="text-blue-600 dark:text-blue-400">${PERSONAL_INFO.locationFull}</span>`)
                 }}
               />
             ))}

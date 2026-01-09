@@ -2,61 +2,12 @@ import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
 import { ExternalLink, Github, Folder } from 'lucide-react';
+import { PROJECTS_DATA } from '../constants.js';
 
 export function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-  const projects = [
-    {
-      title: "MyGate ERP Web Application",
-      description: "Consumer-facing web application for MyGate's ERP system. Built with React and Redux for state management, featuring responsive design and seamless API integration.",
-      tags: ["React", "Redux", "Material-UI", "REST API", "GraphQL", "SCSS"],
-      github: "https://github.com",
-      demo: "https://mygate.com",
-      featured: true
-    },
-    {
-      title: "Next.js Component Library",
-      description: "Reusable component library built during BharatTech internship. Includes 50+ components with comprehensive documentation and TypeScript support.",
-      tags: ["Next.js", "React", "TypeScript", "Storybook", "Tailwind CSS"],
-      github: "https://github.com",
-      demo: "https://example.com",
-      featured: true
-    },
-    {
-      title: "Responsive Portfolio Website",
-      description: "Multi-page responsive website with interactive elements, forms, and navigation menus. Optimized for performance and cross-device compatibility.",
-      tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-      github: "https://github.com",
-      demo: "https://example.com",
-      featured: false
-    },
-    {
-      title: "Real-time Chat Application",
-      description: "Full-stack chat application with real-time messaging using Socket.io. Features include user authentication, private messaging, and group chats.",
-      tags: ["React", "Node.js", "Socket.io", "MongoDB", "Express"],
-      github: "https://github.com",
-      demo: "https://example.com",
-      featured: true
-    },
-    {
-      title: "E-commerce Dashboard",
-      description: "Admin dashboard for e-commerce platform with analytics, inventory management, and order tracking. Built with modern UI/UX principles.",
-      tags: ["React", "Material-UI", "Chart.js", "Redux Toolkit"],
-      github: "https://github.com",
-      demo: "https://example.com",
-      featured: false
-    },
-    {
-      title: "Task Management System",
-      description: "Collaborative task management tool with drag-and-drop interface, deadline tracking, and team collaboration features.",
-      tags: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL"],
-      github: "https://github.com",
-      demo: "https://example.com",
-      featured: false
-    }
-  ];
 
   return (
     <section className="py-24 px-4 bg-slate-100/50 dark:bg-slate-900/50" ref={ref}>
@@ -71,7 +22,7 @@ export function Projects() {
             className="text-4xl md:text-5xl mb-4 text-slate-800 dark:text-slate-100 "
             whileHover={{ scale: 1.05 }}
           >
-            Featured Projects
+            {PROJECTS_DATA.title}
           </motion.h2>
           <motion.div 
             className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mx-auto rounded-full"
@@ -80,12 +31,12 @@ export function Projects() {
             transition={{ duration: 0.8, delay: 0.2 }}
           />
           <p className="text-slate-600 dark:text-slate-400 mt-6 max-w-2xl mx-auto">
-            A collection of projects showcasing my frontend development skills and problem-solving abilities
+            {PROJECTS_DATA.subtitle}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
+          {PROJECTS_DATA.projects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 50 }}

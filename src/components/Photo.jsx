@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
+import { PHOTO_SECTION, PERSONAL_INFO } from '../constants.js';
 
 export function Photo() {
   const ref = useRef(null);
@@ -20,7 +21,7 @@ export function Photo() {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Professional Profile
+            {PHOTO_SECTION.title}
           </motion.h2>
           <motion.div
             className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mx-auto rounded-full"
@@ -96,7 +97,7 @@ export function Photo() {
               >
                 <img
                   src="/my_photo.png"
-                  alt="Man Mohan Singh - Professional Photo"
+                  alt={`${PERSONAL_INFO.name} - Professional Photo`}
                   className="w-full h-auto object-cover rounded-xl"
                 />
 
@@ -142,12 +143,10 @@ export function Photo() {
               transition={{ delay: 0.6 }}
             >
               <h3 className="text-3xl mb-4 text-slate-800 dark:text-slate-100">
-                Meet the Developer
+                {PHOTO_SECTION.subtitle}
               </h3>
               <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
-                Passionate about creating beautiful, functional, and user-centered digital experiences.
-                With a strong foundation in computer science and hands-on experience in modern web development,
-                I bring creativity and technical expertise to every project.
+                {PHOTO_SECTION.description}
               </p>
             </motion.div>
 
@@ -157,34 +156,16 @@ export function Photo() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.8 }}
             >
-              <motion.div
-                className="bg-white dark:bg-slate-800 rounded-lg p-4 shadow-lg border border-slate-200 dark:border-slate-700"
-                whileHover={{ scale: 1.05, y: -2 }}
-              >
-                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">2+</div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">Years Experience</div>
-              </motion.div>
-              <motion.div
-                className="bg-white dark:bg-slate-800 rounded-lg p-4 shadow-lg border border-slate-200 dark:border-slate-700"
-                whileHover={{ scale: 1.05, y: -2 }}
-              >
-                <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">15+</div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">Projects Completed</div>
-              </motion.div>
-              <motion.div
-                className="bg-white dark:bg-slate-800 rounded-lg p-4 shadow-lg border border-slate-200 dark:border-slate-700"
-                whileHover={{ scale: 1.05, y: -2 }}
-              >
-                <div className="text-2xl font-bold text-pink-600 dark:text-pink-400">IIIT</div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">Nagpur Graduate</div>
-              </motion.div>
-              <motion.div
-                className="bg-white dark:bg-slate-800 rounded-lg p-4 shadow-lg border border-slate-200 dark:border-slate-700"
-                whileHover={{ scale: 1.05, y: -2 }}
-              >
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400">React</div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">Specialist</div>
-              </motion.div>
+              {PHOTO_SECTION.stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  className="bg-white dark:bg-slate-800 rounded-lg p-4 shadow-lg border border-slate-200 dark:border-slate-700"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                >
+                  <div className={`text-2xl font-bold text-${stat.color}-600 dark:text-${stat.color}-400`}>{stat.value}</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-400">{stat.label}</div>
+                </motion.div>
+              ))}
             </motion.div>
 
             <motion.div
@@ -194,8 +175,8 @@ export function Photo() {
               transition={{ delay: 1 }}
             >
               <blockquote className="italic text-slate-600 dark:text-slate-400 border-l-4 border-blue-500 pl-4">
-                "Code is like humor. When you have to explain it, it's bad."
-                <footer className="text-sm mt-2 text-slate-500 dark:text-slate-500">- Cory House</footer>
+                "{PHOTO_SECTION.quote.text}"
+                <footer className="text-sm mt-2 text-slate-500 dark:text-slate-500">- {PHOTO_SECTION.quote.author}</footer>
               </blockquote>
             </motion.div>
           </motion.div>
