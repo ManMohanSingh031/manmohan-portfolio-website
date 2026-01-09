@@ -1,190 +1,253 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
-import { useRef } from 'react';
-import { Code, Palette, Database, Terminal, Cpu, TrendingUp, Globe, Wrench } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { Code, Palette, Database, Terminal, Cpu, Globe, Wrench, Sparkles } from 'lucide-react';
 
 export function Skills() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const [hoveredSkill, setHoveredSkill] = useState(null);
 
   const skillCategories = [
     {
-      category: "Web Development",
+      category: "Frontend Development",
       icon: Globe,
-      description: "Solid foundation in front-end and back-end development",
-      skills: [
-        { name: "Next.js/React.js", level: 75 },
-        { name: "JavaScript ES6", level: 78 },
-        { name: "Tailwind CSS", level: 85 },
-        { name: "Material UI", level: 80 },
-      ]
+      gradient: "from-blue-400 to-cyan-500",
+      description: "Building modern, responsive web applications",
+      skills: ["React.js", "Next.js", "TypeScript", "JavaScript", "Material UI", "Tailwind CSS", "HTML/CSS", "Redux"]
     },
     {
-      category: "Coding",
-      icon: Code,
-      description: "Proficient in C/C++, data structures and algorithms",
-      skills: [
-        { name: "C/C++", level: 85 },
-        { name: "Java", level: 70 },
-        { name: "Python", level: 60 },
-        { name: "DSA", level: 75 },
-      ]
-    },
-    {
-      category: "UI/UX Design",
-      icon: Palette,
-      description: "Designing intuitive and engaging user interfaces",
-      skills: [
-        { name: "Figma", level: 70 },
-        { name: "User Experience", level: 75 },
-        { name: "Responsive Design", level: 85 },
-        { name: "Prototyping", level: 65 },
-      ]
-    },
-    {
-      category: "Tools",
-      icon: Wrench,
-      description: "Version control, IDEs, and development tools",
-      skills: [
-        { name: "Git & GitHub", level: 85 },
-        { name: "VS Code", level: 90 },
-        { name: "Linux", level: 60 },
-        { name: "Docker", level: 55 },
-      ]
-    },
-    {
-      category: "Database",
+      category: "Backend Development",
       icon: Database,
-      description: "SQL and NoSQL database management",
-      skills: [
-        { name: "MySQL", level: 75 },
-        { name: "MongoDB", level: 70 },
-        { name: "PostgreSQL", level: 65 },
-        { name: "Redis", level: 60 },
-      ]
+      gradient: "from-emerald-400 to-teal-500",
+      description: "Server-side development and data management",
+      skills: ["Node.js", "Express.js", "MySQL", "MongoDB", "PostgreSQL", "REST APIs", "GraphQL"]
     },
     {
-      category: "AI/ML",
+      category: "Cloud & DevOps",
       icon: Cpu,
-      description: "Enthusiastic learner in ML and AI technologies",
-      skills: [
-        { name: "Machine Learning", level: 50 },
-        { name: "TensorFlow", level: 45 },
-        { name: "Data Analysis", level: 55 },
-        { name: "Neural Networks", level: 40 },
-      ]
+      gradient: "from-orange-400 to-red-500",
+      description: "Cloud infrastructure and deployment automation",
+      skills: ["AWS", "AWS CodePipeline", "Jenkins", "Docker", "CI/CD", "AWS Lambda"]
     },
     {
-      category: "Linux",
+      category: "Programming Languages",
+      icon: Code,
+      gradient: "from-purple-400 to-pink-500",
+      description: "Core programming and algorithmic skills",
+      skills: ["C/C++", "Java", "Python", "JavaScript", "TypeScript", "Data Structures & Algorithms"]
+    },
+    {
+      category: "Design & UI/UX",
+      icon: Palette,
+      gradient: "from-pink-400 to-rose-500",
+      description: "Creating beautiful and intuitive user experiences",
+      skills: ["Figma", "User Experience", "Responsive Design", "Prototyping", "Design Systems"]
+    },
+    {
+      category: "Development Tools",
+      icon: Wrench,
+      gradient: "from-green-400 to-blue-500",
+      description: "Essential tools for modern development workflow",
+      skills: ["Git & GitHub", "VS Code", "Postman", "Linux", "Terminal", "npm/yarn", "Webpack", "Vite"]
+    },
+    {
+      category: "Testing & Quality",
       icon: Terminal,
-      description: "Command-line operations and system administration",
-      skills: [
-        { name: "Shell Scripting", level: 55 },
-        { name: "Command Line", level: 65 },
-        { name: "System Admin", level: 50 },
-        { name: "Package Management", level: 60 },
-      ]
+      gradient: "from-yellow-400 to-orange-500",
+      description: "Ensuring code quality and reliability",
+      skills: ["Jest", "React Testing Library", "Unit Testing", "Integration Testing", "Code Reviews"]
     },
     {
-      category: "Stock Market",
-      icon: TrendingUp,
-      description: "Learning chart patterns and market analysis",
-      skills: [
-        { name: "Chart Patterns", level: 45 },
-        { name: "Candlestick", level: 50 },
-        { name: "Market Trends", level: 40 },
-        { name: "Technical Analysis", level: 45 },
-      ]
+      category: "Emerging Technologies",
+      icon: Sparkles,
+      gradient: "from-indigo-400 to-purple-500",
+      description: "Exploring cutting-edge technologies and frameworks",
+      skills: ["Machine Learning", "AI Technologies", "Serverless", "Microservices", "Web3"]
     }
   ];
 
   return (
-    <section className="py-24 px-4" ref={ref}>
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-4 relative overflow-hidden" ref={ref}>
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 dark:bg-blue-500/20 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+            x: [0, 50, 0],
+            y: [0, 30, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/20 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.3, 0.5, 0.3],
+            x: [0, -30, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <motion.h2 
-            className="text-4xl md:text-5xl mb-4 text-slate-800 dark:text-slate-100"
+          <motion.h2
+            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
           >
             Skills & Expertise
           </motion.h2>
-          <motion.div 
-            className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mx-auto rounded-full"
+          <motion.div
+            className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mx-auto rounded-full"
             initial={{ width: 0 }}
-            animate={isInView ? { width: 80 } : {}}
+            animate={isInView ? { width: 96 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           />
+          <motion.p
+            className="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.4 }}
+          >
+            Technologies and tools I use to create exceptional digital experiences
+          </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Skills Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.category}
-              initial={{ opacity: 0, y: 50, rotateY: -20 }}
-              animate={isInView ? { opacity: 1, y: 0, rotateY: 0 } : {}}
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
-              whileHover={{ 
-                y: -10, 
+              whileHover={{
+                y: -8,
                 scale: 1.02,
-                boxShadow: "0 20px 40px rgba(0,0,0,0.2)"
+                transition: { duration: 0.3 }
               }}
-              className="bg-white dark:bg-slate-800 backdrop-blur-sm rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-lg"
+              className="group relative"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <motion.div 
-                  className="p-2 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg"
-                  whileHover={{ rotate: 360, scale: 1.2 }}
-                  transition={{ duration: 0.6 }}
+              {/* Glassmorphism Card */}
+              <div className="relative bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500">
+                {/* Gradient Background on Hover */}
+                <motion.div
+                  className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-500`}
+                />
+
+                {/* Icon Header */}
+                <motion.div
+                  className="flex items-center gap-4 mb-6"
+                  whileHover={{ scale: 1.05 }}
                 >
-                  <category.icon size={24} className="text-blue-600 dark:text-blue-400" />
-                </motion.div>
-                <h3 className="text-xl text-slate-800 dark:text-slate-100">{category.category}</h3>
-              </div>
-              <p className="text-sm text-slate-600 dark:text-slate-300 mb-6">{category.description}</p>
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-sm text-slate-700 dark:text-slate-300">{skill.name}</span>
-                      <motion.span 
-                        className="text-sm text-slate-600 dark:text-slate-400"
-                        initial={{ opacity: 0 }}
-                        animate={isInView ? { opacity: 1 } : {}}
-                        transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.1 + 0.5 }}
-                      >
-                        {skill.level}%
-                      </motion.span>
-                    </div>
-                    <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                      <motion.div
-                        className="h-full bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 rounded-full relative"
-                        initial={{ width: 0 }}
-                        animate={isInView ? { width: `${skill.level}%` } : {}}
-                        transition={{ 
-                          duration: 1.5, 
-                          delay: categoryIndex * 0.1 + skillIndex * 0.1 + 0.5,
-                          ease: "easeOut"
-                        }}
-                      >
-                        <motion.div
-                          className="absolute inset-0 bg-white/30"
-                          animate={{
-                            x: ['-100%', '100%']
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "linear"
-                          }}
-                        />
-                      </motion.div>
-                    </div>
+                  <motion.div
+                    className={`p-4 bg-gradient-to-r ${category.gradient} rounded-2xl shadow-lg`}
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.8 }}
+                  >
+                    <category.icon size={28} className="text-white" />
+                  </motion.div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-1">
+                      {category.category}
+                    </h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                      {category.description}
+                    </p>
                   </div>
+                </motion.div>
+
+                {/* Skills Tags */}
+                <div className="flex flex-wrap gap-3">
+                  {category.skills.map((skill, skillIndex) => (
+                    <motion.div
+                      key={skill}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{
+                        duration: 0.5,
+                        delay: categoryIndex * 0.1 + skillIndex * 0.1 + 0.3
+                      }}
+                      whileHover={{
+                        scale: 1.1,
+                        y: -2,
+                      }}
+                      onMouseEnter={() => setHoveredSkill(skill)}
+                      onMouseLeave={() => setHoveredSkill(null)}
+                      className="relative group/skill cursor-default"
+                    >
+                      <div className="px-4 py-2 bg-white/20 dark:bg-white/10 backdrop-blur-sm rounded-full border border-white/30 dark:border-white/20 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-white/30 dark:hover:bg-white/15 transition-all duration-300">
+                        {skill}
+
+                        {/* Glowing Effect on Hover */}
+                        <motion.div
+                          className={`absolute inset-0 bg-gradient-to-r ${category.gradient} rounded-full opacity-0 group-hover/skill:opacity-20 transition-opacity duration-300`}
+                        />
+                      </div>
+
+                      {/* Floating Sparkle Effect */}
+                      {hoveredSkill === skill && (
+                        <motion.div
+                          className="absolute -top-1 -right-1"
+                          initial={{ opacity: 0, scale: 0 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0 }}
+                        >
+                          <Sparkles size={16} className="text-yellow-400" />
+                        </motion.div>
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Decorative Elements */}
+                <motion.div
+                  className="absolute top-4 right-4 w-20 h-20 opacity-5"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                >
+                  <category.icon size={80} className="text-slate-400" />
+                </motion.div>
+
+                {/* Floating Particles */}
+                {[...Array(3)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-white/40 rounded-full"
+                    style={{
+                      top: `${20 + i * 25}%`,
+                      right: `${10 + i * 5}%`,
+                    }}
+                    animate={{
+                      y: [0, -10, 0],
+                      opacity: [0.2, 0.8, 0.2],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: categoryIndex * 0.3 + i * 0.5,
+                      ease: "easeInOut"
+                    }}
+                  />
                 ))}
               </div>
             </motion.div>
