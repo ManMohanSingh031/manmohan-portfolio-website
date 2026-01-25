@@ -110,7 +110,7 @@ export function Hero() {
             >
               {/* Profile Photo */}
               <motion.img
-                src="/my_photo.png"
+                src={PERSONAL_INFO.profileDummyPhoto}
                 alt={PERSONAL_INFO.name}
                 className="w-full h-full object-cover rounded-full"
                 animate={{
