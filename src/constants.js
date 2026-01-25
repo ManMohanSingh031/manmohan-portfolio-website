@@ -4,32 +4,36 @@ import { Code, Palette, Database, Terminal, Cpu, Globe, Wrench, Sparkles, Code2,
 export const PERSONAL_INFO = {
   // Basic Information
   name: "Man Mohan Singh",
-  title: "Frontend Developer | React.js Specialist",
-  position: "Associate Software Engineer @ MyGate",
-  description: "4th-year Computer Science student at IIIT Nagpur with 2 years of experience building modern web applications. Quick learner, team player, and creative problem solver passionate about exploring new technologies.",
+  title: "Software Engineer | React.js Developer",
+  position: "Software Engineer @ MyGate",
+  description: "Software Engineer with 1.5+ years of experience in React, Redux, Material-UI, GraphQL, and JavaScript. Proven track record in building financial dashboards, analytics modules, and mobile-responsive UIs for large SaaS/ERP platforms.",
 
   // Contact Information
   email: "manmohansingh8422@gmail.com",
-  phone: "+91 8433376122",
-  location: "Rae Bareli, UP",
-  locationFull: "Raebareli, Uttar Pradesh",
+  phone: "+91-8433376122",
+  location: "Raebareli, UP - 229001",
+  locationFull: "Raebareli, Lucknow, Uttar Pradesh - 229001",
 
   // Social Links
-  github: "https://github.com/manmohansingh8422",
-  linkedin: "https://linkedin.com/in/manmohansingh",
+  github: "https://github.com/ManMohanSingh031",
+  linkedin: "https://www.linkedin.com/in/manmohansingh031/",
+
+  // Photo Path
+  profileDummyPhoto: "/my_dummy_photo.png",
+  profilePhoto: "/my_profile_photo.png",
 
   // Professional Details
   birthDate: "18 Oct 2003",
   degree: "B.Tech, CS",
   institute: "Indian Institute of Information Technology, Nagpur (IIITN)",
-  graduationYear: "2024",
-  experience: "2+ YEARS",
+  graduationYear: "May 2024",
+  experience: "1.5+ YEARS",
 
   // About Details
   aboutTitle: "Hello Everyone! 👋",
   aboutDescription: [
-    "My name is Man Mohan Singh. I am pursuing a Bachelor of Technology (B.Tech) degree in Computer Science at the Indian Institute of Information Technology, Nagpur (IIITN), with an expected graduation in 2024.",
-    "Born and raised in Raebareli, Uttar Pradesh, I developed a strong passion for technology early on, which led me to pursue a career in this field. Currently working as an Associate Software Engineer at MyGate, I specialize in Frontend Development with expertise in React.js, Next.js, and modern web technologies.",
+    "My name is Man Mohan Singh. I completed my Bachelor of Technology (B.Tech) degree in Computer Science from the Indian Institute of Information Technology, Nagpur (IIITN), graduating in May 2024.",
+    "Born and raised in Raebareli, Uttar Pradesh, I developed a strong passion for technology early on, which led me to pursue a career in this field. Currently working as a Software Engineer at MyGate, I have 1.5+ years of experience building financial dashboards, analytics modules, and scalable frontend architecture using React, Redux, Material-UI, and GraphQL.",
     "I am committed to leveraging the knowledge and skills gained during my studies and professional experience to solve real-world challenges and contribute meaningfully to society. A creative problem solver, I thrive on exploring new technologies and embracing challenges."
   ]
 };
@@ -132,8 +136,8 @@ export const EDUCATION = [
   {
     degree: "Bachelor of Technology (B.Tech)",
     field: "Computer Science",
-    institution: "Indian Institute of Information Technology, Nagpur (IIITN)",
-    period: "2020 - 2024",
+    institution: "Indian Institute of Information Technology, Nagpur",
+    period: "May 2020 – May 2024",
     grade: "CGPA: 6.01",
     highlights: [
       "Acquired strong foundation in programming and web development",
@@ -176,19 +180,20 @@ export const EXPERIENCE_DATA = {
   achievementsLabel: "Key Achievements:",
   experiences: [
   {
-    title: "Associate Software Engineer (Frontend)",
+    title: "Software Engineer (Frontend)",
     company: "MyGate",
-    location: "Bangalore, India",
+    location: "Bangalore, Karnataka 🇮🇳",
     period: "September 2024 - Present",
     type: "Full Time",
-    description: "Working in the ERP team, responsible for developing and maintaining the consumer-facing web application, ensuring high performance and responsiveness to requests from the front-end.",
+    description: "Primarily worked on Receipt Management, Helpdesk Application, and Amenity Calendar Systems.",
     achievements: [
-      "Developing and maintaining consumer-facing web applications",
-      "Collaborating with design team to implement user-friendly features",
-      "Ensuring technical feasibility of UI/UX designs",
-      "Participating in code reviews and providing constructive feedback"
+      "Developed full-scale financial dashboard with 30+ modular widgets and real-time charts for 1,000+ residential units",
+      "Built and maintained core applications including Receipt Management system, Helpdesk Application workflows, and Amenity Calendar scheduling features",
+      "Improved stability through Sentry error monitoring and RBAC, resolving 50+ production issues and securing workflows across 15+ user roles",
+      "Delivered 15+ mobile-first components with infinite scroll, pull-to-refresh, and touch-optimized interactions, increasing engagement in community management workflows by 40%",
+      "Integrated AdSDK v2 across 5+ ERP modules, generating approx ₹30-40 lakh monthly revenue"
     ],
-    technologies: ["React", "Redux", "JavaScript ES6+", "Material-UI", "HTML/SCSS", "REST API", "GraphQL", "Git", "Jira", "Agile"]
+    technologies: ["React", "Redux", "JavaScript ES6+", "Material-UI", "SCSS", "HTML5", "REST APIs", "GraphQL", "Recharts", "Apollo GraphQL", "Sentry"]
   },
   {
     title: "Software Engineer Intern",
@@ -224,14 +229,14 @@ export const EXPERIENCE_DATA = {
     title: "Subject Matter Expert (SME)",
     company: "Chegg India Pvt. Ltd",
     location: "Remote",
-    period: "October 2023 - March 2024",
+    period: "October 2023 - September 2024",
     type: "Part Time",
-    description: "Guided over 200 students in various computer science subjects, significantly improving their academic performance with an 82% accuracy rate.",
+    description: "Resolved technical queries with 84%+ accuracy, helping global students with software development and web-related topics. Applied programming knowledge (70%), CS theory (20%), and web concepts (10%).",
     achievements: [
-      "Guided over 200 students in computer science subjects",
-      "Achieved 82% accuracy rate in solutions provided",
-      "Improved student academic performance significantly",
-      "Developed clear and comprehensive explanations"
+      "Resolved technical queries with 84%+ accuracy for global students",
+      "Applied programming knowledge (70%), CS theory (20%), and web concepts (10%)",
+      "Provided high-quality answers for software development and web-related topics",
+      "Helped students with complex computer science concepts and problem-solving"
     ],
     technologies: ["C++", "Data Structures", "Algorithms", "Computer Science Fundamentals"]
   }
@@ -244,10 +249,10 @@ export const PHOTO_SECTION = {
   subtitle: "Meet the Developer",
   description: "Passionate about creating beautiful, functional, and user-centered digital experiences. With a strong foundation in computer science and hands-on experience in modern web development, I bring creativity and technical expertise to every project.",
   stats: [
-    { value: "2+", label: "Years Experience", color: "blue" },
+    { value: "1.5+", label: "Years Experience", color: "blue" },
     { value: "15+", label: "Projects Completed", color: "purple" },
     { value: "IIIT", label: "Nagpur Graduate", color: "pink" },
-    { value: "React", label: "Specialist", color: "green" }
+    { value: "React", label: "Developer", color: "green" }
   ],
   quote: {
     text: "Code is like humor. When you have to explain it, it's bad.",
@@ -340,7 +345,7 @@ export const PROFILES_DATA = {
   profiles: [
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/in/manmohansingh",
+      url: "https://www.linkedin.com/in/manmohansingh031/",
       description: "Professional network & career updates",
       color: "from-blue-600 to-blue-400",
       bgColor: "bg-blue-500/10 dark:bg-blue-500/20",
@@ -349,7 +354,7 @@ export const PROFILES_DATA = {
     },
     {
       name: "GitHub",
-      url: "https://github.com/manmohansingh8422",
+      url: "https://github.com/ManMohanSingh031",
       description: "Open source contributions & projects",
       color: "from-slate-700 to-slate-500 dark:from-slate-300 dark:to-slate-400",
       bgColor: "bg-slate-500/10 dark:bg-slate-500/20",
@@ -358,7 +363,7 @@ export const PROFILES_DATA = {
     },
     {
       name: "LeetCode",
-      url: "https://leetcode.com/manmohansingh",
+      url: "https://leetcode.com/u/manmohansingh031/",
       description: "Coding challenges & problem solving",
       color: "from-orange-600 to-orange-400",
       bgColor: "bg-orange-500/10 dark:bg-orange-500/20",
@@ -367,7 +372,7 @@ export const PROFILES_DATA = {
     },
     {
       name: "CodeChef",
-      url: "https://codechef.com/users/manmohansingh",
+      url: "https://www.codechef.com/users/man_mohan_1",
       description: "Competitive programming contests",
       color: "from-amber-700 to-amber-500",
       bgColor: "bg-amber-500/10 dark:bg-amber-500/20",
@@ -376,7 +381,7 @@ export const PROFILES_DATA = {
     },
     {
       name: "HackerRank",
-      url: "https://hackerrank.com/manmohansingh",
+      url: "https://www.hackerrank.com/profile/manmohansingh841",
       description: "Skills verification & certifications",
       color: "from-green-600 to-green-400",
       bgColor: "bg-green-500/10 dark:bg-green-500/20",
@@ -491,6 +496,6 @@ export const CONTACT_DATA = {
   },
   footer: {
     copyright: "© 2025 Man Mohan Singh. Built with React, Motion & Tailwind CSS",
-    tagline: "Made with 💙 for the web development community"
+    tagline: "Made with 💙 by Man Mohan Singh - Frontend Developer"
   }
 };

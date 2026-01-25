@@ -96,7 +96,7 @@ export function Photo() {
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
                 <img
-                  src="/my_photo.png"
+                  src={PERSONAL_INFO.profilePhoto}
                   alt={`${PERSONAL_INFO.name} - Professional Photo`}
                   className="w-full h-auto object-cover rounded-xl"
                 />
