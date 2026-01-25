@@ -65,5 +65,5 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://manmohansingh031.github.io/software-engineer-portfolio"
+  "homepage": "https://manmohansingh031.github.io/manmohan-portfolio-website"
 }

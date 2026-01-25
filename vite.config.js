@@ -7,6 +7,7 @@ export default defineConfig(async () => {
   const tailwindcss = await import('@tailwindcss/vite');
 
   return {
+    base: '/manmohan-portfolio-website/',
     plugins: [react(), tailwindcss.default()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
