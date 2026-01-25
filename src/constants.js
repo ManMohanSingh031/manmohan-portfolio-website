@@ -19,8 +19,8 @@ export const PERSONAL_INFO = {
   linkedin: "https://www.linkedin.com/in/manmohansingh031/",
 
   // Photo Path
-  profileDummyPhoto: "/my_dummy_photo.png",
-  profilePhoto: "/my_profile_photo.png",
+  profileDummyPhoto: "my_dummy_photo.png",
+  profilePhoto: "my_profile_photo.png",
 
   // Professional Details
   birthDate: "18 Oct 2003",
